@@ -15,8 +15,8 @@ Expected Timeline
 
 SL | Learning Task | Description | Status | Comment |
 --:|:--------------|:------------|:------:|---------|
-1 |Java Advanced Features| Leard Generics |
-2  | Android Studio Basic| Basics of xml, calander, activity changing, recycler view, Material design |  | |
+1 |Java Advanced Features| Learn Generics |![ ] (https://img.shields.io/badge/Generics-learned-green) ![ ]  | |
+2  | Android Studio Basic| Basics of xml, calander, activity changing, recycler view, Material design | | |
 3  |Realtime Database | Authentication,  Login, Backup, Data recovery with Firebase|   | |
 4  |Calender | Create calender to visualise
 5  |Time Picker | Select date and time from calender | | |
