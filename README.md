@@ -12,3 +12,13 @@ Feature List
 Expected Timeline
 ------------------
 ![gantt_chart](https://user-images.githubusercontent.com/49723335/117655918-80a07e80-b1b9-11eb-9746-32775e477a87.jpg)
+
+SL | Learning Task | Description | Status | Comment |
+--:|:--------------|:------------|:------:|---------|
+1 |Java Advanced Features| Leard Generics |
+2  | Android Studio Basic| Basics of xml, calander, activity changing, recycler view, Material design |  | |
+3  |Realtime Database | Authentication,  Login, Backup, Data recovery with Firebase|   | |
+4  |Calender | Create calender to visualise
+5  |Time Picker | Select date and time from calender | | |
+6  |Notification and alarm | Send notifications and alarm to the user | | |
+7  |Notes | Type and save text to be reviewed at later time | | |
