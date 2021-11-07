@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyEssential">
         <activity
+            android:name=".auth.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".auth.LogInActivity"
+            android:exported="true" />
+        <activity
             android:name=".DashBoard"
             android:exported="true" />
         <activity
