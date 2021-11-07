@@ -20,69 +20,83 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/slogan"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:transitionName="sloganName"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/appName"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/ubuntu_bold"
-        android:text="Hello There"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:transitionName="sloganName" />
+        android:orientation="vertical"
+        android:layout_below="@id/appName">
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/slogan"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/ubuntu_bold"
-        android:text="Welcome Back"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="@string/hello_there"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/slogan"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="Welcome Back"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 
     <EditText
-        android:fontFamily="@font/ubuntu_regular"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/username"
-        android:layout_below="@id/text2"
-        android:background="#30ffffff"
-        android:hint="Username"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        android:layout_margin="10dp"
-        android:padding="20dp"
-        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
-        android:drawablePadding="20dp"/>
-
-    <EditText
-        android:fontFamily="@font/ubuntu_regular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
-        android:layout_below="@id/username"
+        android:layout_below="@id/linearLayout"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
-        android:hint="Password"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        android:layout_margin="10dp"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:fontFamily="@font/ubuntu_regular"
+        android:hint="Email"
         android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_info_24"
         android:drawablePadding="20dp"
-        android:inputType="textPassword"/>
+        android:fontFamily="@font/ubuntu_regular"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
 
     <com.google.android.material.button.MaterialButton
-        android:fontFamily="@font/ubuntu_regular"
-        android:id="@+id/loginbtn"
+        android:id="@+id/logInBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/forgotPassText"
@@ -92,7 +106,19 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/purple_700"
-        android:text="GO" />
+        android:fontFamily="@font/ubuntu_regular"
+        android:text="Go" />
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logInBtn"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/ubuntu_regular"
+        android:text="New User? Register Here"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
     <TextView
         android:fontFamily="@font/ubuntu_regular"
@@ -113,14 +139,25 @@
         android:layout_height="wrap_content"
         android:id="@+id/others"
         android:layout_above="@id/socialicons"
-        android:text="or sign in with"
+        android:text="Or LogIn with"
         android:layout_centerHorizontal="true"/>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/socialicons"
+        android:layout_below="@+id/register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
+        android:layout_marginBottom="10dp"
+        android:foregroundGravity="center"
+        android:visibility="invisible" />
 
     <LinearLayout
+        android:id="@+id/socialicons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/socialicons"
         android:layout_alignParentBottom="true"
         android:gravity="center">
 
@@ -129,17 +166,19 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
-            android:src="@drawable/google"/>
+            android:src="@drawable/google" />
+
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
-            android:src="@drawable/fb"/>
+            android:src="@drawable/fb" />
+
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
-            android:src="@drawable/twitter"/>
+            android:src="@drawable/twitter" />
 
     </LinearLayout>
 

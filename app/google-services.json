@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "751172104462",
+    "project_id": "dailyessential-e934a",
+    "storage_bucket": "dailyessential-e934a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751172104462:android:7796f2e20a0e646186275f",
+        "android_client_info": {
+          "package_name": "com.example.dailyessential"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751172104462-rp4lq3gb2fae0i8g7scnf2g5qu5jamut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYv1PwI4fCQRJbV6n5Pyg5KYV8yS_kTzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751172104462-rp4lq3gb2fae0i8g7scnf2g5qu5jamut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
