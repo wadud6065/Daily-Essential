@@ -3,17 +3,41 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/background_note.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_add_button.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_dailog.xml" value="0.3517948717948718" />
+        <entry key="app/src/main/res/drawable/background_delete.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_done_button.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_miscellaneous.xml" value="0.3398148148148148" />
+        <entry key="app/src/main/res/drawable/background_note_color_1.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_note_color_2.xml" value="0.2861111111111111" />
+        <entry key="app/src/main/res/drawable/background_search.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_subtitle_indicator.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_ui.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/circle.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/colortransparent.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_add_outline.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.3572916666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_done.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_image.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_web_link.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/image_back_34dp.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/wave.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_create_note.xml" value="0.24519230769230768" />
         <entry key="app/src/main/res/layout/activity_dash_board.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/activity_edit_note.xml" value="0.27887323943661974" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.4" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main_note.xml" value="0.3" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/item_container_note.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/layout_delete_note.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/layout_miscellaneous.xml" value="0.264" />
       </map>
     </option>
   </component>

@@ -19,30 +19,32 @@
             android:elevation="5dp" />
 
         <TextView
-            android:fontFamily="@font/ubuntu_medium"
             android:id="@+id/tvDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"
             android:elevation="5dp"
+            android:fontFamily="@font/ubuntu_medium"
             android:text="Welcome To"
             android:textColor="@color/white"
+            android:transitionName="logoName"
             android:textSize="17sp" />
 
         <TextView
-            android:fontFamily="@font/ubuntu_bold"
             android:id="@+id/tvLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvDesc"
             android:layout_alignLeft="@+id/tvDesc"
             android:elevation="5dp"
+            android:fontFamily="@font/ubuntu_bold"
             android:text="Daily Essential"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:transitionName="tvLogin" />
+            android:transitionName="sloganName"
+            />
 
     </RelativeLayout>
 
@@ -130,7 +132,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/signInOrUpButtonForPatientId"
+                android:id="@+id/keepNotesId"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="20dp"
