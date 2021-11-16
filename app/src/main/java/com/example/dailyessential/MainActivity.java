@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.dailyessential.auth.LogInActivity;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     //Animation
     Animation topAnimation, bottomAnimation, middleAnimation;
 
+    FirebaseAuth fAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        fAuth = FirebaseAuth.getInstance();
 
         topAnimation = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
@@ -73,13 +78,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startApp() {
-        Intent intent = new Intent(MainActivity.this, LogInActivity.class);
+        if (fAuth.getCurrentUser() == null) {
+            Intent intent = new Intent(MainActivity.this, LogInActivity.class);
 
-        Pair[] pairs = new Pair[2];
-        pairs[0] = new Pair<View, String>(appName, "logoName");
-        pairs[1] = new Pair<View, String>(slogan, "sloganName");
+            Pair[] pairs = new Pair[2];
+            pairs[0] = new Pair<View, String>(appName, "logoName");
+            pairs[1] = new Pair<View, String>(slogan, "sloganName");
 
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-        startActivity(intent, options.toBundle());
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(intent, options.toBundle());
+            finish();
+
+        } else {
+            Intent intent = new Intent(MainActivity.this, DashBoard.class);
+
+            Pair[] pairs = new Pair[2];
+            pairs[0] = new Pair<View, String>(appName, "logoName");
+            pairs[1] = new Pair<View, String>(slogan, "sloganName");
+
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+            startActivity(intent, options.toBundle());
+            finish();
+        }
     }
 }
