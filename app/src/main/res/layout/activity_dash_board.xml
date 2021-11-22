@@ -120,10 +120,16 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/routine"/>
+
                     <com.google.android.material.textview.MaterialTextView
                         android:fontFamily="@font/ubuntu_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:text="Daily Routine"
                         android:gravity="center"/>
 
@@ -147,10 +153,17 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginLeft="3dp"
+                        android:src="@drawable/notes"/>
+
                     <com.google.android.material.textview.MaterialTextView
                         android:fontFamily="@font/ubuntu_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:text="Keep Notes"
                         android:gravity="center"/>
 
@@ -179,10 +192,16 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/todolist"/>
+
                     <com.google.android.material.textview.MaterialTextView
                         android:fontFamily="@font/ubuntu_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:text="To Do List"
                         android:gravity="center"/>
 
@@ -205,10 +224,17 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/money"/>
+
                     <com.google.android.material.textview.MaterialTextView
                         android:fontFamily="@font/ubuntu_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:text="Money Tracking"
                         android:gravity="center"/>
 
@@ -238,11 +264,17 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/reminder"/>
+
                     <com.google.android.material.textview.MaterialTextView
                         android:fontFamily="@font/ubuntu_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="To Do List"
+                        android:layout_marginTop="20dp"
+                        android:text="Reminder"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -265,11 +297,17 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/logout"/>
+
                     <com.google.android.material.textview.MaterialTextView
                         android:fontFamily="@font/ubuntu_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Money Tracking"
+                        android:layout_marginTop="20dp"
+                        android:text="Log out"
                         android:gravity="center"/>
 
                 </LinearLayout>
