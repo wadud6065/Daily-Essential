@@ -10,14 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyEssential">
         <activity
+            android:name=".dailyroutine.CalendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".notes.model.EditNoteActivity"
             android:exported="true" />
         <activity
             android:name=".notes.CreateNoteActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".notes.MainNoteActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".auth.RegisterActivity"
             android:exported="true" />
