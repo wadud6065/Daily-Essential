@@ -64,4 +64,6 @@ dependencies {
 
     // FirebaseUI for Cloud Storage
     implementation 'com.firebaseui:firebase-ui-storage:7.1.1'
+
+    implementation 'joda-time:joda-time:2.10.6'
 }

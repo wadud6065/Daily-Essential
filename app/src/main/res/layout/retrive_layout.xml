@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:elevation="10dp"
+    app:cardElevation="10dp"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardMaxElevation="10dp">
+
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/linerLayout"
+            android:layout_weight="80">
+
+            <TextView
+                android:fontFamily="@font/ubuntu_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="item"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:id="@+id/item"/>
+            <TextView
+                android:fontFamily="@font/ubuntu_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$0"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:id="@+id/amount"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="note"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:id="@+id/note"
+                android:fontFamily="@font/ubuntu_medium"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="date"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:id="@+id/date"
+                android:fontFamily="@font/ubuntu_medium"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="20">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_house"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
