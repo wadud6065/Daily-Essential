@@ -82,6 +82,8 @@ public class MoneyDashBoard extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
         nav = findViewById(R.id.navId);
+        nav.getMenu().getItem(0).setChecked(true);
+        nav.setItemIconTintList(null);
         drawerLayout = findViewById(R.id.drawerLayoutId);
 
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open,R.string.close);
@@ -117,7 +119,7 @@ public class MoneyDashBoard extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 switch (item.getItemId()) {
-                    case R.id.db:
+                    case R.id.mybudget:
                         break;
                 }
 
@@ -246,11 +248,6 @@ public class MoneyDashBoard extends AppCompatActivity {
                             }
 
                             loader.dismiss();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(MoneyDashBoard.this, e.toString(), Toast.LENGTH_LONG).show();
                         }
                     });
                     dialog.dismiss();
