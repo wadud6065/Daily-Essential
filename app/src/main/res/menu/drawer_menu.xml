@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/today"
+        android:icon="@drawable/ic_today"
+        android:title="Today"/>
+
+    <item android:id="@+id/mybudget"
+        android:icon="@drawable/ic_my_budget"
+        android:title="My Budget"
+        />
+
+    <item android:id="@+id/this_week"
+        android:icon="@drawable/ic_week"
+        android:title="This Week"/>
+
+    <item android:id="@+id/this_month"
+        android:icon="@drawable/ic_month"
+        android:title="This Month"/>
+
+    <item android:id="@+id/history"
+        android:icon="@drawable/ic_history"
+        android:title="History"/>
+
+    <item android:id="@+id/subMenu"
+        android:title="Analysis">
+
+        <menu>
+            <item
+                android:id="@+id/today_analytics"
+                android:icon="@drawable/today_analytics"
+                android:title="Today Analytics" />
+            <item
+                android:id="@+id/week_analytics"
+                android:icon="@drawable/week_analytics"
+                android:title="Week Analytics" />
+
+            <item
+                android:id="@+id/month_analytics"
+                android:icon="@drawable/month_analytics"
+                android:title="Month Analytics" />
+        </menu>
+
+    </item>
+
+</menu>
