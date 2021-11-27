@@ -31,7 +31,7 @@
                 android:text="item"
                 android:textStyle="bold"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:id="@+id/item"/>
             <TextView
                 android:fontFamily="@font/ubuntu_medium"
@@ -40,7 +40,7 @@
                 android:text="$0"
                 android:textStyle="bold"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:id="@+id/amount"/>
             <TextView
                 android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                 android:text="note"
                 android:textStyle="bold"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:id="@+id/note"
                 android:fontFamily="@font/ubuntu_medium"/>
             <TextView
@@ -57,7 +57,7 @@
                 android:text="date"
                 android:textStyle="bold"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:id="@+id/date"
                 android:fontFamily="@font/ubuntu_medium"/>
         </LinearLayout>
