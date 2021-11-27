@@ -27,13 +27,16 @@
 
         <menu>
             <item
+                android:id="@+id/today_analytics"
                 android:icon="@drawable/today_analytics"
                 android:title="Today Analytics" />
             <item
+                android:id="@+id/week_analytics"
                 android:icon="@drawable/week_analytics"
                 android:title="Week Analytics" />
 
             <item
+                android:id="@+id/month_analytics"
                 android:icon="@drawable/month_analytics"
                 android:title="Month Analytics" />
         </menu>

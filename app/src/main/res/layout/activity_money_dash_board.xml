@@ -8,16 +8,21 @@
     tools:context=".money.MoneyDashBoard"
     android:id="@+id/drawerLayoutId">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/my_awesome_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="?attr/actionBarSize"
             android:background="#0099ff"
-            android:minHeight="?attr/actionBarSize">
+            android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -26,214 +31,20 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:gravity="center"/>
+
         </androidx.appcompat.widget.Toolbar>
 
-        <View
-            android:id="@+id/topView"
+        <FrameLayout
+            android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_below="@+id/my_awesome_toolbar"
-            android:background="@drawable/shape" />
+            android:layout_height="match_parent" />
 
-
-        <TableLayout
-            android:id="@+id/titles_table"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center_horizontal"
-            android:paddingHorizontal="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/my_awesome_toolbar">
-
-            <TableRow >
-                <TextView
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Budget"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:background="@drawable/borders"
-                    android:padding="5dp"
-                    android:textSize="12dp"/>
-
-                <TextView
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Today"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-
-                <TextView
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Week"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-                <TextView
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Month"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-                <TextView
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Savings"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-            </TableRow>
-
-            <TableRow >
-                <TextView
-                    android:id="@+id/budgetTv"
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cash 0"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-
-                <TextView
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:id="@+id/todaySpendingTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cash 0"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-
-                <TextView
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:id="@+id/weekSpendingTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cash 0"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-
-                <TextView
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:id="@+id/monthSpendingTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cash 0"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-
-                <TextView
-                    android:id="@+id/remainingBudgetTv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cash 0"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:background="@drawable/borders"
-                    android:textSize="12dp"/>
-            </TableRow>
-        </TableLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/titles_table"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/totalAmountSpentOn"
-                android:fontFamily="@font/ubuntu_bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TotalAmount: $0"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_margin="5dp"/>
-
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:visibility="gone"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    app:fabSize="normal"
-                    android:id="@+id/fab"
-                    app:backgroundTint="#0099ff"
-                    android:src="@drawable/ic_add"
-                    android:layout_margin="16dp"/>
-
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navId"
         app:headerLayout="@layout/header"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         app:menu="@menu/drawer_menu"
         android:layout_gravity="start"
         android:background="@color/white"
