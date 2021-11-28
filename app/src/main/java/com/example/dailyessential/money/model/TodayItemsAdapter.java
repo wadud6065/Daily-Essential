@@ -185,11 +185,10 @@ public class TodayItemsAdapter  extends  RecyclerView.Adapter<TodayItemsAdapter.
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(mContext, "Deleted  successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "Deleted successfully", Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(mContext, task.getException().toString(), Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
 

@@ -105,10 +105,19 @@ public class DailyCostFragment extends Fragment {
     ProgressDialog loader;
 
     FirebaseAuth mAuth;
-    DatabaseReference expensesRef;
+    DatabaseReference expensesRef, budgetRef, personalRef;
 
     TodayItemsAdapter todayItemsAdapter;
     List <Data> myDataList;
+
+    String onlineUserid = "";
+
+    TextView weekSpendingTv, budgetTv, todaySpendingTv, remainingBudgetTv, monthSpendingTv;
+
+    int totalAmountMonth = 0;
+    int totalAmountBudget = 0;
+    int totalAmountBudgetB = 0;
+    int totalAmountBudgetC = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -122,9 +131,17 @@ public class DailyCostFragment extends Fragment {
         progressBar = view.findViewById(R.id.progressBar);
         loader = new ProgressDialog(getContext());
 
+        budgetTv = view.findViewById(R.id.budgetTv);
+        todaySpendingTv = view.findViewById(R.id.todaySpendingTv);
+        remainingBudgetTv = view.findViewById(R.id.remainingBudgetTv);
+        monthSpendingTv = view.findViewById(R.id.monthSpendingTv);
+        weekSpendingTv = view.findViewById(R.id.weekSpendingTv);
+
         mAuth = FirebaseAuth.getInstance();
         onlineUserId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         expensesRef = FirebaseDatabase.getInstance().getReference("expenses").child(onlineUserId);
+        budgetRef = FirebaseDatabase.getInstance().getReference("budget").child(onlineUserId);
+        personalRef = FirebaseDatabase.getInstance().getReference("personal").child(onlineUserId);
 
         recyclerView = view.findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -139,6 +156,36 @@ public class DailyCostFragment extends Fragment {
         recyclerView.setAdapter(todayItemsAdapter);
         Log.d("Debug", "It's okay");
 
+        budgetRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists() && snapshot.getChildrenCount() > 0) {
+                    for(DataSnapshot ds: snapshot.getChildren()) {
+                        Map <String, Object> map = (Map <String, Object>)ds.getValue();
+                        Object total = map.get("amount");
+                        int pTotal = Integer.parseInt(String.valueOf(total));
+                        totalAmountBudgetB+=pTotal;
+                    }
+                    totalAmountBudgetC = totalAmountBudgetB;
+                    personalRef.child("budget").setValue(totalAmountBudgetC);
+                } else {
+                    personalRef.child("budget").setValue(0);
+                    Toast.makeText(getContext(), "Please Set a BUDGET ", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        getBudgetAmount();
+        getTodaySpentAmount();
+        getMonthSpentAmount();
+        getWeekSpentAmount();
+        getSavings();
+
         fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -147,6 +194,154 @@ public class DailyCostFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void getBudgetAmount() {
+        budgetRef.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot.exists() && snapshot.getChildrenCount()>0){
+                    for (DataSnapshot ds :  snapshot.getChildren()){
+                        Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                        Object total = map.get("amount");
+                        int pTotal = Integer.parseInt(String.valueOf(total));
+                        totalAmountBudget+=pTotal;
+                        budgetTv.setText(String.valueOf(totalAmountBudget));
+                    }
+                }else {
+                    totalAmountBudget=0;
+                    budgetTv.setText(String.valueOf(0));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void getTodaySpentAmount(){
+        @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar cal = Calendar.getInstance();
+        String date = dateFormat.format(cal.getTime());
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("expenses").child(onlineUserId);
+        Query query = reference.orderByChild("date").equalTo(date);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                int totalAmount = 0;
+                for (DataSnapshot ds :  dataSnapshot.getChildren()){
+                    Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                    Object total = map.get("amount");
+                    int pTotal = Integer.parseInt(String.valueOf(total));
+                    totalAmount+=pTotal;
+                    todaySpendingTv.setText(" "+ totalAmount);
+                }
+                personalRef.child("today").setValue(totalAmount);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getMonthSpentAmount(){
+        MutableDateTime epoch = new MutableDateTime();
+        epoch.setDate(0); //Set to Epoch time
+        DateTime now = new DateTime();
+        Months months = Months.monthsBetween(epoch, now);
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("expenses").child(onlineUserId);
+        Query query = reference.orderByChild("month").equalTo(months.getMonths());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int totalAmount = 0;
+                for (DataSnapshot ds :  dataSnapshot.getChildren()){
+                    Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                    Object total = map.get("amount");
+                    int pTotal = Integer.parseInt(String.valueOf(total));
+                    totalAmount+=pTotal;
+                    monthSpendingTv.setText(" "+ totalAmount);
+
+                }
+                personalRef.child("month").setValue(totalAmount);
+                totalAmountMonth = totalAmount;
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getWeekSpentAmount(){
+        MutableDateTime epoch = new MutableDateTime();
+        epoch.setDate(0); //Set to Epoch time
+        DateTime now = new DateTime();
+        Weeks weeks = Weeks.weeksBetween(epoch, now);
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("expenses").child(onlineUserId);
+        Query query = reference.orderByChild("week").equalTo(weeks.getWeeks());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int totalAmount = 0;
+                for (DataSnapshot ds :  dataSnapshot.getChildren()){
+                    Map<String, Object> map = (Map<String, Object>)ds.getValue();
+                    Object total = map.get("amount");
+                    int pTotal = Integer.parseInt(String.valueOf(total));
+                    totalAmount+=pTotal;
+                    weekSpendingTv.setText(" "+ totalAmount);
+                }
+                personalRef.child("week").setValue(totalAmount);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getSavings(){
+        personalRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull final DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+
+                    int budget;
+                    if (snapshot.hasChild("budget")) {
+                        budget = Integer.parseInt(snapshot.child("budget").getValue().toString());
+                    } else {
+                        budget = 0;
+                    }
+                    int monthSpending;
+                    if (snapshot.hasChild("month")) {
+                        monthSpending = Integer.parseInt(Objects.requireNonNull(snapshot.child("month").getValue().toString()));
+                    } else {
+                        monthSpending = 0;
+                    }
+
+                    int savings = budget - monthSpending;
+                    remainingBudgetTv.setText(" " + savings);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void readItems() {
