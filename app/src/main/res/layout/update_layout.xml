@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="update this item?"
+        android:text="Update this item?"
         android:gravity="center"
         android:textColor="#000"/>
 
@@ -20,31 +20,49 @@
         android:id="@+id/itemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="itemName"
+        android:text="ItemName"
         android:textColor="#000"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="enter amount.."
-        android:textColorHint="#000"
-        android:inputType="number"
         android:id="@+id/amount"
-        android:textColor="#000"
-        android:fontFamily="@font/ubuntu_medium"/>
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:background="@null"
+        android:fontFamily="@font/ubuntu_regular"
+        android:hint="Enter Amount"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:includeFontPadding="false"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textColorHint="@color/colorTextHint"
+        android:textSize="@dimen/_13ssp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="enter note.."
-        android:textColorHint="#000"
         android:id="@+id/note"
-        android:inputType="textCapSentences"
-        android:textColor="#000"
-        android:fontFamily="@font/ubuntu_medium"/>
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:background="@null"
+        android:fontFamily="@font/ubuntu_regular"
+        android:hint="Enter Note"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:includeFontPadding="false"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textColorHint="@color/colorTextHint"
+        android:textSize="@dimen/_13ssp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,7 +73,8 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginRight="5dp">
 
             <Button
                 android:id="@+id/btnDelete"
@@ -77,7 +96,8 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp">
 
             <Button
                 android:id="@+id/btnUpdate"

@@ -98,6 +98,7 @@ public class TodayItemsAdapter  extends  RecyclerView.Adapter<TodayItemsAdapter.
                 break;
         }
 
+        //After clicking in any recycler options
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +112,7 @@ public class TodayItemsAdapter  extends  RecyclerView.Adapter<TodayItemsAdapter.
 
     }
 
+    // Update the now data to the firebase
     private void updateData() {
 
         AlertDialog.Builder myDialog= new AlertDialog.Builder(mContext);
@@ -185,11 +187,10 @@ public class TodayItemsAdapter  extends  RecyclerView.Adapter<TodayItemsAdapter.
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(mContext, "Deleted  successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "Deleted successfully", Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(mContext, task.getException().toString(), Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
 
