@@ -77,7 +77,7 @@ public class WeekSpendingAdapter extends RecyclerView.Adapter<WeekSpendingAdapte
 
     @Override
     public int getItemCount() {
-        return myDataList.size();
+         return myDataList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
