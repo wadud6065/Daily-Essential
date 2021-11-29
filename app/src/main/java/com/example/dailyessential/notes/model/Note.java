@@ -1,5 +1,8 @@
 package com.example.dailyessential.notes.model;
 
+/**
+ * It is class which will help you to retrive data from firebase database.
+ * */
 public class Note {
     private String title;
     private String subTitle;

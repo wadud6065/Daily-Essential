@@ -23,6 +23,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * This is an activity for log in
+ * */
 public class LogInActivity extends AppCompatActivity {
 
     private EditText email, password;
@@ -46,6 +49,9 @@ public class LogInActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
 
+        /**
+         * If you don't have an account then this part will take you to the register activity
+         * */
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +70,7 @@ public class LogInActivity extends AppCompatActivity {
         });
     }
 
+    // Method for completing log in task
     private void logInUser() {
         String emailText = email.getText().toString().trim();
         String passwordText = password.getText().toString().trim();
@@ -91,6 +98,8 @@ public class LogInActivity extends AppCompatActivity {
         }
 
         progressBar.setVisibility(View.VISIBLE);
+
+        //It's a firebase authentication
         mAuth.signInWithEmailAndPassword(emailText, passwordText)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

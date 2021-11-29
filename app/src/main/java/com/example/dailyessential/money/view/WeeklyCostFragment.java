@@ -105,6 +105,7 @@ public class WeeklyCostFragment extends Fragment {
         progressBar = view.findViewById(R.id.progressBar);
         recyclerView = view.findViewById(R.id.recyclerView);
 
+        //Getting string info if it will work like monthly or weekly
         type = this.getArguments().getString("Tag");
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -129,6 +130,11 @@ public class WeeklyCostFragment extends Fragment {
         return view;
     }
 
+    /**
+     * This Method read item from the firebase order by month. It calculate the monthly spending and
+     * add it to the text view It'll take data from fire store and continuously adding it to the
+     * arrayList
+     **/
     public void readMonthSpendingItems() {
         MutableDateTime epoch = new MutableDateTime();
         epoch.setDate(0);
@@ -167,6 +173,11 @@ public class WeeklyCostFragment extends Fragment {
         });
     }
 
+    /**
+     * This Method read item from the firebase order by week. It calculate the weekly spending and
+     * add it to the text view It'll take data from fire store and continuously adding it to the
+     * arrayList
+     **/
     private void readWeekSpendingItems() {
 
         MutableDateTime epoch = new MutableDateTime();

@@ -156,6 +156,7 @@ public class DailyCostFragment extends Fragment {
         recyclerView.setAdapter(todayItemsAdapter);
         Log.d("Debug", "It's okay");
 
+        //It will work when you come back direct to this fragment instantly
         budgetRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -196,6 +197,9 @@ public class DailyCostFragment extends Fragment {
         return view;
     }
 
+    /**
+     * This Method gets monthly budget amount from firebase and place it to the budget table.
+     **/
     private void getBudgetAmount() {
         budgetRef.addValueEventListener(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
@@ -215,7 +219,6 @@ public class DailyCostFragment extends Fragment {
                     budgetTv.setText(String.valueOf(0));
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -223,6 +226,9 @@ public class DailyCostFragment extends Fragment {
         });
     }
 
+    /**
+     * This Method gets daily spending amount from firebase and place it to the today table.
+     **/
     private void getTodaySpentAmount(){
         @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Calendar cal = Calendar.getInstance();
@@ -251,6 +257,9 @@ public class DailyCostFragment extends Fragment {
         });
     }
 
+    /**
+     * This Method gets monthly spending amount from firebase and place it to the monthly table.
+     **/
     private void getMonthSpentAmount(){
         MutableDateTime epoch = new MutableDateTime();
         epoch.setDate(0); //Set to Epoch time
@@ -283,6 +292,9 @@ public class DailyCostFragment extends Fragment {
         });
     }
 
+    /**
+     * This Method gets weekly spending amount from firebase and place it to the weekly table.
+     **/
     private void getWeekSpentAmount(){
         MutableDateTime epoch = new MutableDateTime();
         epoch.setDate(0); //Set to Epoch time
@@ -312,6 +324,9 @@ public class DailyCostFragment extends Fragment {
         });
     }
 
+    /**
+     * This Method calculates saving amount from firebase and place it to the saving table.
+     **/
     private void getSavings(){
         personalRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -344,6 +359,10 @@ public class DailyCostFragment extends Fragment {
         });
     }
 
+    /**
+     * This Method read item from the firebase. It calculate the daily spending and add it to the text view
+     * It'll take data from fire store and contineously adding it to the arrayList
+     **/
     private void readItems() {
 
         @SuppressLint("SimpleDateFormat")
@@ -387,6 +406,9 @@ public class DailyCostFragment extends Fragment {
 
     }
 
+    /**
+     * This method add item to recyclerView and also save them to the firebase store.
+     **/
     private void addItemSpentOn() {
         AlertDialog.Builder myDialog = new AlertDialog.Builder(getContext());
         LayoutInflater inflater = LayoutInflater.from(getContext());

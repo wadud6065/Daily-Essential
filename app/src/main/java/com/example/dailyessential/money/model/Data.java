@@ -1,5 +1,8 @@
 package com.example.dailyessential.money.model;
 
+/**
+ * It is class which will help you to retrieve data from firebase database.
+ * */
 public class Data {
 
     String item,date,id,itemNday,itemNweek,itemNmonth;

@@ -19,6 +19,10 @@ import com.example.dailyessential.auth.LogInActivity;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * It's mainly splash screen activity.
+ * */
+
 public class MainActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 2500;
@@ -77,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * In this code there is some code for making animation. Example: Pair is array. It takes two
+     * parameters. These two item make animation.
+     * */
     public void startApp() {
         if (fAuth.getCurrentUser() == null) {
             Intent intent = new Intent(MainActivity.this, LogInActivity.class);

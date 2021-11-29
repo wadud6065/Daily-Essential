@@ -98,6 +98,7 @@ public class TodayItemsAdapter  extends  RecyclerView.Adapter<TodayItemsAdapter.
                 break;
         }
 
+        //After clicking in any recycler options
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +112,7 @@ public class TodayItemsAdapter  extends  RecyclerView.Adapter<TodayItemsAdapter.
 
     }
 
+    // Update the now data to the firebase
     private void updateData() {
 
         AlertDialog.Builder myDialog= new AlertDialog.Builder(mContext);

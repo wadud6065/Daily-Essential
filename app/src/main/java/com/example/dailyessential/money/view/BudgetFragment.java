@@ -52,6 +52,10 @@ import java.util.Map;
  * Use the {@link BudgetFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+/**
+ * This fragment will take budget from you how much you want to pay for your every need
+ */
 public class BudgetFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -132,6 +136,9 @@ public class BudgetFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        /**
+          * Get month budget and set it to the textView
+         * **/
         budgetRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -140,7 +147,7 @@ public class BudgetFragment extends Fragment {
                 for (DataSnapshot snap: snapshot.getChildren()){
                     Data data = snap.getValue(Data.class);
                     totalAmount += data.getAmount();
-                    String sTotal = String.valueOf("Month budget: $"+ totalAmount);
+                    String sTotal = String.valueOf("Month budget: "+ totalAmount);
                     totalBudgetAmountTextView.setText(sTotal);
                 }
             }
@@ -160,6 +167,9 @@ public class BudgetFragment extends Fragment {
             }
         });
 
+        /**
+        * After adding item, Budget would be changed. And the changed budget set to the textView
+         **/
         budgetRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -167,13 +177,9 @@ public class BudgetFragment extends Fragment {
                     int totalammount = 0;
 
                     for (DataSnapshot snap:snapshot.getChildren()){
-
-                        Data data =snap.getValue(Data.class);
-
-                        totalammount+=data.getAmount();
-
-                        String sttotal=String.valueOf("Month Budget: "+totalammount);
-
+                        Data data = snap.getValue(Data.class);
+                        totalammount += data.getAmount();
+                        String sttotal = String.valueOf("Month Budget: "+totalammount);
                         totalBudgetAmountTextView.setText(sttotal);
 
                     }
@@ -211,6 +217,10 @@ public class BudgetFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Adding item to the budget recycler view. This will help us to analysis budget and manipulate
+     * it in the recycler view
+     * */
     private void additem() {
         androidx.appcompat.app.AlertDialog.Builder myDialog = new androidx.appcompat.app.AlertDialog.Builder(getContext());
         LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -289,10 +299,15 @@ public class BudgetFragment extends Fragment {
         dialog.show();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onStart() {
         super.onStart();
 
+        /**
+         * After starting this fragment the whole recycler view will be updated by the firebase recycler
+         * view and adapter.
+         * */
         FirebaseRecyclerOptions<Data> options = new FirebaseRecyclerOptions.Builder<Data>()
                 .setQuery(budgetRef, Data.class)
                 .build();
@@ -394,6 +409,7 @@ public class BudgetFragment extends Fragment {
         }
     }
 
+    //Update data in firebase database
     private void updateData() {
         AlertDialog.Builder myDialog = new AlertDialog.Builder(getContext());
         LayoutInflater inflater = LayoutInflater.from(getContext());

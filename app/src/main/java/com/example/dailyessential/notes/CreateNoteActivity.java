@@ -95,6 +95,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                     return;
                 }
 
+                // It's a database reference..
                 DocumentReference docRef = fStore.collection("notes")
                         .document(user.getUid())
                         .collection("myNotes")
@@ -109,6 +110,9 @@ public class CreateNoteActivity extends AppCompatActivity {
 
                 Log.d("1", "all clear");
 
+                /**
+                 * Saving data as a map in fireStoredata base.
+                 * */
                 docRef.set(note).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -128,6 +132,9 @@ public class CreateNoteActivity extends AppCompatActivity {
         setSubtitleIndicatorColor();
     }
 
+    /**
+     * It's a bottom sheet for customize note data. By this method you can select color for your note
+     * */
     private void initMiscellaneous() {
         final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
         final BottomSheetBehavior<LinearLayout> bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
@@ -216,6 +223,7 @@ public class CreateNoteActivity extends AppCompatActivity {
 
     }
 
+    // This part will help us to find out what the note color is.
     private void setSubtitleIndicatorColor() {
         GradientDrawable gradientDrawable = (GradientDrawable) viewSubtitleIndicator.getBackground();
         gradientDrawable.setColor(Color.parseColor(selectedNoteColor));

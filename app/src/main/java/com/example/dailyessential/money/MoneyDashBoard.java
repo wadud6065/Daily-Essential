@@ -56,6 +56,7 @@ public class MoneyDashBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_money_dash_board);
 
+        // A customized toolbar...
         Toolbar toolbar = findViewById(R.id.my_awesome_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
@@ -70,6 +71,9 @@ public class MoneyDashBoard extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        /**
+         * If any menu item is not selected then it'll open TodayFragment by default
+         * */
         if(savedInstanceState == null) {
             DailyCostFragment todayFragment = new DailyCostFragment();
             getSupportFragmentManager().beginTransaction()
@@ -79,6 +83,9 @@ public class MoneyDashBoard extends AppCompatActivity {
             nav.setCheckedItem(R.id.today);
         }
 
+        /**
+         * Navigation function for selecting menu item from navigation menu. Here is always used
+         * */
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
             @Override
@@ -144,6 +151,10 @@ public class MoneyDashBoard extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * On pressing back you'll go to the dash board activity..
+     * */
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
