@@ -22,6 +22,9 @@ import com.example.dailyessential.money.model.Data;
 import com.example.dailyessential.money.model.TodayItemsAdapter;
 import com.example.dailyessential.money.view.BudgetFragment;
 import com.example.dailyessential.money.view.DailyCostFragment;
+import com.example.dailyessential.money.view.MonthlyAnalytics;
+import com.example.dailyessential.money.view.TodayAnalytics;
+import com.example.dailyessential.money.view.WeekAnalytics;
 import com.example.dailyessential.money.view.WeeklyCostFragment;
 import com.example.dailyessential.notes.MainNoteActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -138,12 +141,30 @@ public class MoneyDashBoard extends AppCompatActivity {
                         break;
 
                     case R.id.today_analytics:
+                        TodayAnalytics todayAnalytics = new TodayAnalytics();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, todayAnalytics)
+                                .addToBackStack(null)
+                                .commit();
+                        drawerLayout.closeDrawers();
                         break;
 
                     case R.id.week_analytics:
+                        WeekAnalytics weekAnalytics = new WeekAnalytics();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, weekAnalytics)
+                                .addToBackStack(null)
+                                .commit();
+                        drawerLayout.closeDrawers();
                         break;
 
                     case R.id.month_analytics:
+                        MonthlyAnalytics monthlyAnalytics = new MonthlyAnalytics();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, monthlyAnalytics)
+                                .addToBackStack(null)
+                                .commit();
+                        drawerLayout.closeDrawers();
                         break;
                 }
 
