@@ -35,6 +35,7 @@
         <activity
             android:name=".DashBoard"
             android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true" >
