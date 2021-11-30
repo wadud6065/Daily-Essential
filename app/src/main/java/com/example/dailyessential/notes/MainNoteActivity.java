@@ -53,13 +53,13 @@ public class MainNoteActivity extends AppCompatActivity {
         user = fAuth.getCurrentUser();
         noteLists = findViewById(R.id.notesRecyclerView);
 
-        Query query=fStore.collection("notes")
+        // query notes > uuid > myNotes
+        Query query = fStore.collection("notes")
                 .document(user.getUid())
                 .collection("myNotes")
                 .orderBy("title", Query.Direction.ASCENDING);
-//        // query notes > uuid > myNotes
 
-        //This is used for adding query in firebase database
+        //This is used for adding query in firebase database. You can access data from this allNotes
         FirestoreRecyclerOptions<Note> allNotes = new FirestoreRecyclerOptions.Builder<Note>()
                 .setQuery(query, Note.class)
                 .build();
@@ -68,10 +68,12 @@ public class MainNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(v.getContext(), CreateNoteActivity.class));
+                // This overridePendingTransition function helps to create slide animation
                 overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
             }
         });
 
+        // Initialize the noteAdapter for firebase. Here is used firebase recylcerView
         noteAdapter = new FirestoreRecyclerAdapter<Note, NoteViewHolder>(allNotes) {
             @Override
             protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull Note note) {
@@ -91,6 +93,7 @@ public class MainNoteActivity extends AppCompatActivity {
                 holder.layoutNote.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        /// Passing data for editing note..
                         Intent intent = new Intent(v.getContext(), EditNoteActivity.class);
                         intent.putExtra("title", note.getTitle());
                         intent.putExtra("subTitle", note.getSubTitle());
@@ -137,6 +140,9 @@ public class MainNoteActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This code will work when you press back button from this activity
+     * **/
     @Override
     public void onBackPressed() {
         super.onBackPressed();

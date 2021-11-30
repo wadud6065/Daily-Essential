@@ -23,6 +23,9 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * This is an activity for registration
+ * */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText email, password;
@@ -47,6 +50,9 @@ public class RegisterActivity extends AppCompatActivity {
         passwordTextLayout = findViewById(R.id.passwordTextLayout);
         mAuth = FirebaseAuth.getInstance();
 
+        /**
+         * If you have an account then this part will take you to the log in activity
+         * */
         logInText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    // Method for completing register task
     private void registerUser() {
         String emailText = email.getText().toString().trim();
         String passwordText = password.getText().toString().trim();
@@ -96,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         progressBar.setVisibility(View.VISIBLE);
 
+        //It's a firebase authentication
         mAuth.createUserWithEmailAndPassword(emailText, passwordText)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

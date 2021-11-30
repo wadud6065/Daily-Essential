@@ -85,6 +85,7 @@ public class EditNoteActivity extends AppCompatActivity {
 
         selectedNoteColor = getIntent().getStringExtra("color");
 
+        // It's a database reference..
         docRef = fStore.collection("notes")
                 .document(user.getUid())
                 .collection("myNotes")
@@ -131,6 +132,9 @@ public class EditNoteActivity extends AppCompatActivity {
         setSubtitleIndicatorColor();
     }
 
+    /**
+     * It's a bottom sheet for customize note data. By this method you can select color for your note
+     * */
     private void initMiscellaneous() {
         final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
         final BottomSheetBehavior<LinearLayout> bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
@@ -217,6 +221,7 @@ public class EditNoteActivity extends AppCompatActivity {
             }
         });
 
+        //The activites of delete button
         layoutMiscellaneous.findViewById(R.id.layoutDeleteNote).setVisibility(View.VISIBLE);
         layoutMiscellaneous.findViewById(R.id.layoutDeleteNote).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,11 +234,15 @@ public class EditNoteActivity extends AppCompatActivity {
 
     }
 
+    // This part will help us to find out what the note color is.
     private void setSubtitleIndicatorColor() {
         GradientDrawable gradientDrawable = (GradientDrawable) viewSubtitleIndicator.getBackground();
         gradientDrawable.setColor(Color.parseColor(selectedNoteColor));
     }
 
+    /**
+     * A custom dialog. It will ask you if you want to delete this note or not
+     * */
     public class CustomDialogClass extends Dialog implements
             android.view.View.OnClickListener {
 
