@@ -15,6 +15,9 @@
             android:name=".money.MoneyDashBoard"
             android:exported="true" />
         <activity
+            android:name=".dailyroutine.CalendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".notes.model.EditNoteActivity"
             android:exported="true" />
         <activity
@@ -32,6 +35,7 @@
         <activity
             android:name=".DashBoard"
             android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true" >
