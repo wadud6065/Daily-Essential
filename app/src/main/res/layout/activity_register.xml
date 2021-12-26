@@ -66,8 +66,7 @@
         app:startIconDrawable="@drawable/ic_baseline_person_outline_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view5"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/view5">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameText"
