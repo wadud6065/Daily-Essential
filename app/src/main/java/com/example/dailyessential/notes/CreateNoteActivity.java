@@ -115,7 +115,8 @@ public class CreateNoteActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(CreateNoteActivity.this, "Note Saved.", Toast.LENGTH_SHORT).show();
-                        onBackPressed();
+                        Intent intent = new Intent(CreateNoteActivity.this, MainNoteActivity.class);
+                        startActivity(intent);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

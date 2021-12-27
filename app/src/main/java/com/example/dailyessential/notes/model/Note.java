@@ -5,7 +5,6 @@ package com.example.dailyessential.notes.model;
  * */
 public class Note {
     private String title;
-    private String subTitle;
     private String content;
     private String color;
     private String dateAndTime;
@@ -13,27 +12,19 @@ public class Note {
     public Note(){
 
     }
-    public Note(String title, String subTitle, String content, String color) {
+    public Note(String title, String content, String color, String dateAndTime) {
         this.title = title;
-        this.subTitle = subTitle;
         this.content = content;
         this.color = color;
+        this.dateAndTime = color;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getSubTitle() {
-        return subTitle;
-    }
-
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
     }
 
     public void setContent(String content) {

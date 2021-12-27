@@ -10,10 +10,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -80,7 +83,7 @@ public class MainNoteActivity extends AppCompatActivity {
                 String docId = noteAdapter.getSnapshots().getSnapshot(position).getId();
                 Log.d("SAD",docId);
                 holder.textTitle.setText(note.getTitle());
-                holder.textContent.setText(note.getContent());
+                holder.textSubTitle.setText(note.getContent());
                 holder.textDateTime.setText(note.getDateAndTime());
 
                 GradientDrawable gradientDrawable = (GradientDrawable) holder.layoutNote.getBackground();
@@ -96,6 +99,7 @@ public class MainNoteActivity extends AppCompatActivity {
                         /// Passing data for editing note..
                         Intent intent = new Intent(v.getContext(), EditNoteActivity.class);
                         intent.putExtra("title", note.getTitle());
+                        intent.putExtra("subTitle", note.getContent());
                         intent.putExtra("content", note.getContent());
                         intent.putExtra("color", note.getColor());
                         intent.putExtra("noteId", docId);
@@ -118,7 +122,44 @@ public class MainNoteActivity extends AppCompatActivity {
                 StaggeredGridLayoutManager.VERTICAL));
         noteLists.setAdapter(noteAdapter);
         noteAdapter.startListening();
-        //Log.d("SAD",noteAdapter.getSnapshots().getSnapshot(0)+"");
+
+        //For searching notes
+        EditText searchBox = findViewById(R.id.inputSearch);
+        searchBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d("Why", "Searchbox has changed to: " + editable.toString());
+                Query query1;
+                if(editable.toString().isEmpty()) {
+                    query1 = fStore.collection("notes")
+                            .document(user.getUid())
+                            .collection("myNotes")
+                            .orderBy("title", Query.Direction.ASCENDING);
+                } else {
+                    query1 = fStore.collection("notes")
+                            .document(user.getUid())
+                            .collection("myNotes")
+                            .whereEqualTo("title", editable.toString())
+                            .orderBy("title", Query.Direction.ASCENDING);
+                }
+
+                FirestoreRecyclerOptions<Note> option = new FirestoreRecyclerOptions.Builder<Note>()
+                        .setQuery(query1, Note.class)
+                        .build();
+                noteAdapter.updateOptions(option);
+                noteAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     /**
@@ -126,14 +167,14 @@ public class MainNoteActivity extends AppCompatActivity {
      * (custom NoteViewHolder).
      */
     public class NoteViewHolder extends RecyclerView.ViewHolder {
-        TextView textTitle, textContent, textDateTime;
+        TextView textTitle, textSubTitle, textDateTime;
         LinearLayout layoutNote;
 
         public NoteViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textTitle = itemView.findViewById(R.id.textTitle);
-            textContent = itemView.findViewById(R.id.textContent);
+            textSubTitle = itemView.findViewById(R.id.textContent);
             textDateTime = itemView.findViewById(R.id.textDateTime);
             layoutNote = itemView.findViewById(R.id.layoutNote);
         }
