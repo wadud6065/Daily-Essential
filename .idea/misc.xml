@@ -52,6 +52,7 @@
         <entry key="app/src/main/res/layout/item_container_note.xml" value="0.2" />
         <entry key="app/src/main/res/layout/layout_delete_note.xml" value="0.264" />
         <entry key="app/src/main/res/layout/layout_miscellaneous.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/layout_reset_password.xml" value="0.3411458333333333" />
         <entry key="app/src/main/res/layout/layout_rest_password.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/retrive_layout.xml" value="0.4" />
         <entry key="app/src/main/res/layout/update_layout.xml" value="0.264" />

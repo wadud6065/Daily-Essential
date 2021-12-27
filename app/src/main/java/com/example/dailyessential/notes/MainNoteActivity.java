@@ -80,7 +80,7 @@ public class MainNoteActivity extends AppCompatActivity {
                 String docId = noteAdapter.getSnapshots().getSnapshot(position).getId();
                 Log.d("SAD",docId);
                 holder.textTitle.setText(note.getTitle());
-                holder.textSubTitle.setText(note.getSubTitle());
+                holder.textContent.setText(note.getContent());
                 holder.textDateTime.setText(note.getDateAndTime());
 
                 GradientDrawable gradientDrawable = (GradientDrawable) holder.layoutNote.getBackground();
@@ -96,7 +96,6 @@ public class MainNoteActivity extends AppCompatActivity {
                         /// Passing data for editing note..
                         Intent intent = new Intent(v.getContext(), EditNoteActivity.class);
                         intent.putExtra("title", note.getTitle());
-                        intent.putExtra("subTitle", note.getSubTitle());
                         intent.putExtra("content", note.getContent());
                         intent.putExtra("color", note.getColor());
                         intent.putExtra("noteId", docId);
@@ -127,14 +126,14 @@ public class MainNoteActivity extends AppCompatActivity {
      * (custom NoteViewHolder).
      */
     public class NoteViewHolder extends RecyclerView.ViewHolder {
-        TextView textTitle, textSubTitle, textDateTime;
+        TextView textTitle, textContent, textDateTime;
         LinearLayout layoutNote;
 
         public NoteViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textTitle = itemView.findViewById(R.id.textTitle);
-            textSubTitle = itemView.findViewById(R.id.textSubtitle);
+            textContent = itemView.findViewById(R.id.textContent);
             textDateTime = itemView.findViewById(R.id.textDateTime);
             layoutNote = itemView.findViewById(R.id.layoutNote);
         }

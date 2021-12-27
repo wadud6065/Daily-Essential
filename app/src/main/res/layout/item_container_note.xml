@@ -23,7 +23,7 @@
         android:textSize="@dimen/_15ssp"/>
 
     <TextView
-        android:id="@+id/textSubtitle"
+        android:id="@+id/textContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
@@ -33,7 +33,7 @@
         android:fontFamily="@font/ubuntu_regular"
         android:includeFontPadding="false"
         android:textColor="@color/colorNoteSubtitleText"
-        android:textSize="@dimen/_14ssp"/>
+        android:textSize="@dimen/_9ssp"/>
 
     <TextView
         android:id="@+id/textDateTime"
