@@ -47,9 +47,9 @@ public class EditNoteActivity extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseFirestore fStore;
 
-    private ImageView saveNote;
+    private ImageView saveNote, imageBack;
 
-    private EditText noteTitle, noteSubtitle, content;
+    private EditText noteTitle, content;
 
     private TextView textDateTime;
 
@@ -67,11 +67,10 @@ public class EditNoteActivity extends AppCompatActivity {
 
         saveNote = findViewById(R.id.imageSave);
         noteTitle = findViewById(R.id.inputNoteTitle);
-        noteSubtitle = findViewById(R.id.inputNoteSubtitle);
         content = findViewById(R.id.inputNote);
+        imageBack = findViewById(R.id.imageBack);
 
         noteTitle = findViewById(R.id.inputNoteTitle);
-        noteSubtitle = findViewById(R.id.inputNoteSubtitle);
         content = findViewById(R.id.inputNote);
         textDateTime = findViewById(R.id.textDateTime);
 
@@ -79,7 +78,6 @@ public class EditNoteActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         noteTitle.setText(getIntent().getStringExtra("title"));
-        noteSubtitle.setText(getIntent().getStringExtra("subTitle"));
         content.setText(getIntent().getStringExtra("content"));
         textDateTime.setText(getIntent().getStringExtra("dateTime"));
 
@@ -95,18 +93,16 @@ public class EditNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nTitle = noteTitle.getText().toString();
-                String nSubTitle = noteSubtitle.getText().toString();
                 String nContent = content.getText().toString();
                 String nColor = selectedNoteColor;
 
-                if(nTitle.isEmpty() || nSubTitle.isEmpty() || nContent.isEmpty()) {
+                if(nTitle.isEmpty() || nContent.isEmpty()) {
                     Toast.makeText(EditNoteActivity.this, "Can not Save note with Empty Field.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 Map<String, Object> note= new HashMap<>();
                 note.put("title", nTitle);
-                note.put("subTitle", nSubTitle);
                 note.put("content", nContent);
                 note.put("color", nColor);
 
@@ -116,8 +112,7 @@ public class EditNoteActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(EditNoteActivity.this, "Note Saved.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(EditNoteActivity.this, MainNoteActivity.class);
-                        startActivity(intent);
+                        onBackPressed();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -130,6 +125,13 @@ public class EditNoteActivity extends AppCompatActivity {
 
         initMiscellaneous();
         setSubtitleIndicatorColor();
+
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     /**
@@ -231,7 +233,6 @@ public class EditNoteActivity extends AppCompatActivity {
                 cdd.show();
             }
         });
-
     }
 
     // This part will help us to find out what the note color is.

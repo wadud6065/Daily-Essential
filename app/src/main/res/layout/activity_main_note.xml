@@ -57,7 +57,7 @@
             android:importantForAutofill="no"
             android:includeFontPadding="false"
             android:inputType="text"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/black"
             android:textColorHint="@color/colorTextHint"
             android:textSize="@dimen/_13ssp" />
 

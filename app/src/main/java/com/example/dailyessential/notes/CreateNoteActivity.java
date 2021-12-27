@@ -53,9 +53,9 @@ public class CreateNoteActivity extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseFirestore fStore;
 
-    private ImageView saveNote;
+    private ImageView saveNote, imageBack;
 
-    private EditText noteTitle, noteSubtitle, content;
+    private EditText noteTitle, content;
     private TextView textDateTime;
 
     private String nDateAndTime;
@@ -70,9 +70,9 @@ public class CreateNoteActivity extends AppCompatActivity {
 
         saveNote = findViewById(R.id.imageSave);
         noteTitle = findViewById(R.id.inputNoteTitle);
-        noteSubtitle = findViewById(R.id.inputNoteSubtitle);
         content = findViewById(R.id.inputNote);
         textDateTime = findViewById(R.id.textDateTime);
+        imageBack = findViewById(R.id.imageBack);
 
         fStore = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -86,11 +86,10 @@ public class CreateNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nTitle = noteTitle.getText().toString();
-                String nSubTitle = noteSubtitle.getText().toString();
                 String nContent = content.getText().toString();
                 String nColor = selectedNoteColor;
 
-                if(nTitle.isEmpty() || nSubTitle.isEmpty() || nContent.isEmpty()) {
+                if(nTitle.isEmpty() || nContent.isEmpty()) {
                     Toast.makeText(CreateNoteActivity.this, "Can not Save note with Empty Field.", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -103,7 +102,6 @@ public class CreateNoteActivity extends AppCompatActivity {
 
                 Map <String, Object> note= new HashMap<>();
                 note.put("title", nTitle);
-                note.put("subTitle", nSubTitle);
                 note.put("content", nContent);
                 note.put("color", nColor);
                 note.put("dateAndTime", nDateAndTime);
@@ -117,7 +115,8 @@ public class CreateNoteActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(CreateNoteActivity.this, "Note Saved.", Toast.LENGTH_SHORT).show();
-                        onBackPressed();
+                        Intent intent = new Intent(CreateNoteActivity.this, MainNoteActivity.class);
+                        startActivity(intent);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -130,6 +129,13 @@ public class CreateNoteActivity extends AppCompatActivity {
 
         initMiscellaneous();
         setSubtitleIndicatorColor();
+
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     /**
