@@ -139,12 +139,12 @@ public class LogInActivity extends AppCompatActivity {
     /**
      * A custom dialog. It will ask you if you want to reset your email password
      * */
-    public class CustomDialogClass extends Dialog implements
-            android.view.View.OnClickListener {
+    public class CustomDialogClass extends Dialog {
 
         public Activity c;
         Button cancelBtn, resetBtn;
         EditText resetMailEditText;
+        FirebaseAuth rAuth;
 
         public CustomDialogClass(Activity a) {
             super(a);
@@ -160,38 +160,51 @@ public class LogInActivity extends AppCompatActivity {
             cancelBtn = findViewById(R.id.cancel);
             resetBtn = findViewById(R.id.reset);
             resetMailEditText = findViewById(R.id.resetPasswordMail);
-            cancelBtn.setOnClickListener(this);
-            resetBtn.setOnClickListener(this);
+            rAuth = FirebaseAuth.getInstance();
+
+            cancelBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dismiss();
+                }
+            });
+
+            resetBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    resetPassword();
+                }
+            });
         }
 
-        @SuppressLint("NonConstantResourceId")
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.reset:
-                    String resetEmailText = resetMailEditText.getText().toString().trim();
+        private void resetPassword() {
+            String resetEmailText = resetMailEditText.getText().toString().trim();
 
-                    if(resetEmailText.isEmpty()) {
-                        Toast.makeText(LogInActivity.this, "Email is required", Toast.LENGTH_SHORT);
-//                        resetMailEditText.setError("Email is required");
-//                        resetMailEditText.requestFocus();
-                    }
-
-                    if(!Patterns.EMAIL_ADDRESS.matcher(resetEmailText).matches()) {
-//                        resetMailEditText.setError("Please Provide a valid email");
-//                        resetMailEditText.requestFocus();
-                    }
-
-                    break;
-
-                case R.id.cancel:
-                    dismiss();
-                    break;
-
-                default:
-                    break;
+            if(resetEmailText.isEmpty()) {
+                resetMailEditText.setError("Email is required");
+                resetMailEditText.requestFocus();
+                return;
             }
-            dismiss();
+
+            if(!Patterns.EMAIL_ADDRESS.matcher(resetEmailText).matches()) {
+                resetMailEditText.setError("Please Provide a valid email");
+                resetMailEditText.requestFocus();
+                return;
+            }
+
+            rAuth.sendPasswordResetEmail(resetEmailText).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()) {
+                        dismiss();
+                        Toast.makeText(LogInActivity.this, "Check your email to reset your password", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        dismiss();
+                        Toast.makeText(LogInActivity.this, "Try again! Something wrong happened", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
     }
 }
