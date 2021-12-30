@@ -2,12 +2,15 @@ package com.example.dailyessential.todo;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +21,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dailyessential.R;
+import com.example.dailyessential.money.view.BudgetFragment;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -141,5 +147,52 @@ public class Todo extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+    protected void onStart(){
+        super.onStart();
+
+        FirebaseRecyclerOptions<Model>options = new FirebaseRecyclerOptions.Builder<Model>()
+                .setQuery(reference,Model.class)
+                .build();
+        FirebaseRecyclerAdapter<Model, myViewHolder> adapter = new FirebaseRecyclerAdapter<Model, myViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Model model) {
+                holder.setDate(model.getDate());
+                holder.setTask(model.getTask());
+                holder.setDescription(model.getDescription());
+
+            }
+
+            @NonNull
+            @Override
+            public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.retrieve_layout,parent,false);
+                return new myViewHolder(view);
+            }
+        };
+
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
+    }
+
+    public static class myViewHolder extends RecyclerView.ViewHolder{
+        View view;
+        public myViewHolder(@NonNull View itemView) {
+            super(itemView);
+            view=itemView;
+        }
+        public void setTask(String task){
+            TextView taskTestView = view.findViewById(R.id.idTaskTv);
+            taskTestView.setText(task);
+        }
+        public void setDescription(String description){
+            TextView desTextView = view.findViewById(R.id.idDescriptionTv);
+            desTextView.setText(description);
+        }
+        public void setDate(String date){
+            TextView dateTextView = view.findViewById(R.id.iddDateTv);
+            dateTextView.setText(date);
+        }
     }
 }
