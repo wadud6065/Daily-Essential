@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".reminder.reminderFrag"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/idReminderTittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@null"
+        android:fontFamily="@font/ubuntu_bold"
+        android:hint="Title"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:includeFontPadding="false"
+        android:inputType="text"
+        android:textColorHint="@color/colorTextHint"
+        android:textSize="@dimen/_16ssp"/>
+
+    <EditText
+        android:id="@+id/idReminderDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="@font/ubuntu_medium"
+        android:hint="Description"
+        android:importantForAutofill="no"
+        android:includeFontPadding="false"
+        android:inputType="textMultiLine"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:textColorHint="@color/colorTextHint"
+        android:textSize="@dimen/_13ssp" />
+
+</FrameLayout>

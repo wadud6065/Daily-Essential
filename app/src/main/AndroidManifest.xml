@@ -12,6 +12,9 @@
         android:theme="@style/Theme.DailyEssential"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".reminder.ReminderActivity"
+            android:exported="false" />
+        <activity
             android:name=".money.MoneyDashBoard"
             android:exported="true" />
         <activity
@@ -35,12 +38,12 @@
         <activity
             android:name=".DashBoard"
             android:exported="true" />
-        <activity android:name=".todo.Todo"
-            android:exported="true"/>
-
+        <activity
+            android:name=".todo.Todo"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
