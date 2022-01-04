@@ -8,15 +8,21 @@ public class Note {
     private String content;
     private String color;
     private String dateAndTime;
+    private String search;
 
     public Note(){
 
     }
-    public Note(String title, String content, String color, String dateAndTime) {
+    public Note(String title, String content, String color, String dateAndTime, String search) {
         this.title = title;
         this.content = content;
         this.color = color;
         this.dateAndTime = color;
+        this.search = search;
+    }
+
+    public String getSearch() {
+        return search;
     }
 
     public String getTitle() {
@@ -33,6 +39,10 @@ public class Note {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 
     public void setDateAndTime(String dateAndTime) {

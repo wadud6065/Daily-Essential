@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -136,6 +137,7 @@ public class MainNoteActivity extends AppCompatActivity {
 
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void afterTextChanged(Editable editable) {
                 Log.d("Why", "Searchbox has changed to: " + editable.toString());
@@ -149,7 +151,7 @@ public class MainNoteActivity extends AppCompatActivity {
                     query1 = fStore.collection("notes")
                             .document(user.getUid())
                             .collection("myNotes")
-                            .whereEqualTo("title", editable.toString())
+                            .whereEqualTo("search", editable.toString().toLowerCase())
                             .orderBy("title", Query.Direction.ASCENDING);
                 }
 
