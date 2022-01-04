@@ -12,6 +12,8 @@ ___
 4. Take some time to download SDK. Don't do any work in android studio.
 5. After downloading, it's ready to run.
 
+**Android studio can suggest you change or update the library version and dependencies. Don't update or revise those. Just ignore them.**
+
 ### Sometimes it may happen that android studio will give a message when installing the app. The message could be this type "SDK not found."
 **Here is the solution**
 
