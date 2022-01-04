@@ -1,5 +1,6 @@
 package com.example.dailyessential.todo;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -34,6 +35,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class Todo extends AppCompatActivity {
     private Toolbar toolbar;
@@ -55,9 +57,6 @@ public class Todo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
-        toolbar = findViewById(R.id.idTodoToolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Todo List App");
         mAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.idTodoRecycler);
@@ -80,8 +79,6 @@ public class Todo extends AppCompatActivity {
             public void onClick(View v) {
                 addTask();
             }
-
-
         });
     }
     private void addTask() {
@@ -157,7 +154,7 @@ public class Todo extends AppCompatActivity {
                 .build();
         FirebaseRecyclerAdapter<Model, myViewHolder> adapter = new FirebaseRecyclerAdapter<Model, myViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull myViewHolder holder,int position, @NonNull Model model) {
+            protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Model model) {
                 holder.setDate(model.getDate());
                 holder.setTask(model.getTask());
                 holder.setDescription(model.getDescription());
@@ -240,7 +237,7 @@ public class Todo extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Toast.makeText(Todo.this, "Data has been updated successfully", Toast.LENGTH_SHORT).show();
                         }else {
-                            String err = task.getException().toString();
+                            String err = Objects.requireNonNull(task.getException()).toString();
                             Toast.makeText(Todo.this, "update failed "+err, Toast.LENGTH_SHORT).show();
                         }
 
@@ -261,7 +258,7 @@ public class Todo extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Toast.makeText(Todo.this, "Task deleted successfully", Toast.LENGTH_SHORT).show();
                         }else {
-                            String err = task.getException().toString();
+                            String err = Objects.requireNonNull(task.getException()).toString();
                             Toast.makeText(Todo.this, "Failed to delete task "+ err, Toast.LENGTH_SHORT).show();
                         }
                     }
