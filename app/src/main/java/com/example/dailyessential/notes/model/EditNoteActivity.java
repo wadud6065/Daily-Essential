@@ -95,6 +95,7 @@ public class EditNoteActivity extends AppCompatActivity {
                 String nTitle = noteTitle.getText().toString();
                 String nContent = content.getText().toString();
                 String nColor = selectedNoteColor;
+                String search = nTitle.toLowerCase();
 
                 if(nTitle.isEmpty() || nContent.isEmpty()) {
                     Toast.makeText(EditNoteActivity.this, "Can not Save note with Empty Field.", Toast.LENGTH_SHORT).show();
@@ -105,6 +106,7 @@ public class EditNoteActivity extends AppCompatActivity {
                 note.put("title", nTitle);
                 note.put("content", nContent);
                 note.put("color", nColor);
+                note.put("search", search);
 
                 Log.d("1", "all clear");
 
