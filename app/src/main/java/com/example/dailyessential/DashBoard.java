@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.dailyessential.auth.LogInActivity;
+import com.example.dailyessential.dailyroutine.CalendarActivity;
 import com.example.dailyessential.money.MoneyDashBoard;
-import com.example.dailyessential.notes.CreateNoteActivity;
 import com.example.dailyessential.notes.MainNoteActivity;
+import com.example.dailyessential.reminder.ReminderActivity;
+import com.example.dailyessential.todo.Todo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -72,6 +74,33 @@ public class DashBoard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.idTodo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashBoard.this, Todo.class);
+                startActivity(intent);
+                //    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                //  finish();
+            }
+        });
+
+        findViewById(R.id.idDailyRoutine).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(DashBoard.this, CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.idReminder).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashBoard.this, ReminderActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     /**

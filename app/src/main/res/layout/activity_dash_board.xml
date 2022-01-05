@@ -105,7 +105,7 @@
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/signInOrUpButtonForDoctorId"
+                android:id="@+id/idDailyRoutine"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="20dp"
@@ -115,12 +115,10 @@
                 app:cardElevation="10dp">
 
                 <LinearLayout
-                    android:id="@+id/idDailyRoutine"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:clickable="true">
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="80dp"
@@ -181,6 +179,7 @@
             android:layout_marginBottom="0dp">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/idTodo"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="20dp"
@@ -253,7 +252,7 @@
             android:layout_marginBottom="20dp">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/emergencyButtonId"
+                android:id="@+id/idReminder"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="20dp"

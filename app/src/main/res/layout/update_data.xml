@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:elevation="10dp"
+    app:cardElevation="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Update your task"
+            android:gravity="center"
+            android:textColor="#000"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="@dimen/_73sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:text="Task:"
+                    android:textColor="#000"
+                    android:textSize="@dimen/_13ssp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4">
+
+                <EditText
+                    android:id="@+id/idEditTextTask"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@null"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:hint="Task"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:includeFontPadding="false"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorTextHint"
+                    android:textSize="@dimen/_13ssp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_width="@dimen/_73sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Description:"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:textColor="#000"
+                    android:textSize="@dimen/_13ssp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4">
+
+                <EditText
+                    android:id="@+id/idEditTextDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@null"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:hint="Description"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:includeFontPadding="false"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorTextHint"
+                    android:textSize="@dimen/_13ssp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+                <Button
+                    android:id="@+id/idButtonDelete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@color/colorBlueT"
+                    android:fontFamily="@font/ubuntu_medium"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+                <Button
+                    android:id="@+id/idButtonUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Update"
+                    android:textAllCaps="false"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@color/colorBlueT"
+                    android:fontFamily="@font/ubuntu_medium"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
