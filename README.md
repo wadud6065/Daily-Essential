@@ -22,3 +22,26 @@ SL | Learning Task | Description | Status | Comment |
 5  |Time Picker | Select date and time from calender |![](https://img.shields.io/badge/Calender-After%20Calender-lightgrey) | |
 6  |Notification and alarm | Send notifications and alarm to the user |![](https://img.shields.io/badge/Notification-5%20July-red) | |
 7  |Notes | Type and save text to be reviewed at later time | ![](https://img.shields.io/badge/Notes-Inactive-blue)| |
+
+## Acknowledgement 
+- **Flat Icon:** It's a website where anyone can find any icon. So I took some icon from the website.
+- **StackOverflow:** From this website I got many informtion for backend code.
+- **Anisul Islam:** He has a youtube channel. He created a basic android playlist. So I have learned many things from the playlist.
+- **S M AL Hasib:** Hasib is my classmate. He has completed his internship at rangon software. I got some bugs in doing this project. He helped me to solve those.
+
+## Developers
+**Group Number:** 41 <br>
+**Group Name:** Daily-Essential
+
+**Group Member 1 Details:** <br>
+>**Name:** Abdul Wadud Shakib <br>
+>**Mobile No:** +8801721140302 <br>
+>**Email:** wadud6065@gamil.com <br>
+>**Registration:** 2018331120
+
+
+**Group Member 2 Details:** <br>
+>**Name:** MD Toufiqul Islam Fahim <br>
+>**Mobile No:** +01723675937 <br>
+>**Email:** fahim.prime@gamil.com <br>
+>**Registration:** 2018331084
