@@ -20,9 +20,6 @@
             android:name=".money.MoneyDashBoard"
             android:exported="true" />
         <activity
-            android:name=".dailyroutine.CalendarActivity"
-            android:exported="false" />
-        <activity
             android:name=".notes.model.EditNoteActivity"
             android:exported="true" />
         <activity
@@ -42,6 +39,12 @@
             android:exported="true" />
         <activity
             android:name=".todo.Todo"
+            android:exported="true" />
+        <activity android:name=".dailyroutine.EventEditActivity" />
+        <activity android:name=".dailyroutine.WeekViewActivity" />
+        <activity android:name=".dailyroutine.CalendarActivity"/>
+        <activity
+            android:name=".dailyroutine.DailyCalendarActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

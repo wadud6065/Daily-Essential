@@ -13,6 +13,8 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.dailyessential.DailyEssential;
 import com.example.dailyessential.R;
+import com.example.dailyessential.db.AppExecutors;
+import com.example.dailyessential.db.ReminderDatabase;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
@@ -21,6 +23,8 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         notificationManagerCompat = NotificationManagerCompat.from(context);
+
+        int alarmId = intent.getIntExtra("alarmId", 0);
 
         Notification notification = new NotificationCompat.Builder(context, DailyEssential.CHANNEL_ID)
                 .setContentTitle(intent.getStringExtra("title"))
@@ -32,5 +36,12 @@ public class AlarmReceiver extends BroadcastReceiver {
         vibrator.vibrate(VibrationEffect.createOneShot(2000, VibrationEffect.DEFAULT_AMPLITUDE));
 
         notificationManagerCompat.notify(1, notification);
+
+        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                ReminderDatabase.getInstance(context.getApplicationContext()).reminderDao().deletePersonById(alarmId);
+            }
+        });
     }
 }

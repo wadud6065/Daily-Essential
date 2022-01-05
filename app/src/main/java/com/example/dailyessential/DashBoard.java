@@ -12,7 +12,6 @@ import android.view.View;
 import com.example.dailyessential.auth.LogInActivity;
 import com.example.dailyessential.dailyroutine.CalendarActivity;
 import com.example.dailyessential.money.MoneyDashBoard;
-import com.example.dailyessential.notes.CreateNoteActivity;
 import com.example.dailyessential.notes.MainNoteActivity;
 import com.example.dailyessential.reminder.ReminderActivity;
 import com.example.dailyessential.todo.Todo;

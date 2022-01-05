@@ -27,7 +27,7 @@ public class ReminderAdapter extends ListAdapter<Reminder, ReminderAdapter.Remin
 
     private final Context context;
     private final ReminderDao dao;
-    private ReminderDeleteListener listener;
+    private final ReminderDeleteListener listener;
 
     protected ReminderAdapter(@NonNull DiffUtil.ItemCallback<Reminder> diffCallback, Context context, ReminderDao dao) {
         super(diffCallback);

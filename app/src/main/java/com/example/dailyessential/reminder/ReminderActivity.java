@@ -21,16 +21,13 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import com.example.dailyessential.R;
-import com.example.dailyessential.dailyroutine.CalendarActivity;
 import com.example.dailyessential.db.AppExecutors;
 import com.example.dailyessential.db.Reminder;
 import com.example.dailyessential.db.ReminderDao;
 import com.example.dailyessential.db.ReminderDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class ReminderActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, ReminderDeleteListener {
@@ -139,12 +136,13 @@ public class ReminderActivity extends AppCompatActivity implements DatePickerDia
 
     private int startAlarm(String title, String description) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        int alarmID = Long.valueOf(System.currentTimeMillis()).intValue();
 
         Intent intent = new Intent(this, AlarmReceiver.class);
         intent.putExtra("title", title);
         intent.putExtra("description", description);
+        intent.putExtra("alarmId", alarmID);
 
-        int alarmID = Long.valueOf(System.currentTimeMillis()).intValue();
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, alarmID, intent, 0);
 
         if (calendar.before(Calendar.getInstance())) {

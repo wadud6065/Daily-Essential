@@ -1,59 +1,87 @@
 package com.example.dailyessential.dailyroutine;
 
-import static android.content.ContentValues.TAG;
+import static com.example.dailyessential.dailyroutine.CalendarUtils.daysInMonthArray;
+import static com.example.dailyessential.dailyroutine.CalendarUtils.monthYearFromDate;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
-import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.CalendarView;
-import android.widget.TimePicker;
+import android.view.View;
+import android.widget.TextView;
 
-import com.example.dailyessential.MainActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.dailyessential.R;
-import com.example.dailyessential.db.AppExecutors;
-import com.example.dailyessential.db.Reminder;
-import com.example.dailyessential.db.ReminderDao;
-import com.example.dailyessential.db.ReminderDatabase;
 
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class CalendarActivity extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
+{
+    private TextView monthYearText;
+    private RecyclerView calendarRecyclerView;
 
-    private CalendarView calendarView;
-    private ReminderDao database;
-    int hour, min;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+        initWidgets();
+        CalendarUtils.selectedDate = LocalDate.now();
+        setMonthView();
+    }
 
-        database = ReminderDatabase.getInstance(getApplicationContext()).reminderDao();
+    private void initWidgets()
+    {
+        calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
+        monthYearText = findViewById(R.id.monthYearTV);
+    }
 
-        calendarView = (CalendarView) findViewById(R.id.idcalendarView);
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        CalendarActivity.this,
-                        AlertDialog.THEME_HOLO_DARK,
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                    hour= hourOfDay;
-                                    min= minute;
-                                    Calendar calendar = Calendar.getInstance();
-                                    calendar.set(0,0,0,hourOfDay,minute);
+    private void setMonthView()
+    {
+        monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
+        ArrayList<LocalDate> daysInMonth = daysInMonthArray();
 
-                            }
-                        },12,0,false
-                );
-                timePickerDialog.updateTime(hour,min);
-                timePickerDialog.show();
-            }
-        });
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
+        calendarRecyclerView.setLayoutManager(layoutManager);
+        calendarRecyclerView.setAdapter(calendarAdapter);
+    }
+
+    public void previousMonthAction(View view)
+    {
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
+        setMonthView();
+    }
+
+    public void nextMonthAction(View view)
+    {
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusMonths(1);
+        setMonthView();
+    }
+
+    @Override
+    public void onItemClick(int position, LocalDate date)
+    {
+        if(date != null)
+        {
+            CalendarUtils.selectedDate = date;
+            setMonthView();
+        }
+    }
+
+    public void weeklyAction(View view)
+    {
+        startActivity(new Intent(this, WeekViewActivity.class));
     }
 }
+
+
+
+
+
+
+
+

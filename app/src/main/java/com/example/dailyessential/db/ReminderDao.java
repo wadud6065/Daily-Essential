@@ -23,4 +23,7 @@ public interface ReminderDao {
 
     @Query("SELECT * FROM REMINDER ORDER BY ID")
     List<Reminder> loadAllReminders();
+
+    @Query("SELECT * FROM REMINDER WHERE alarmId = :alarmId")
+    Reminder deletePersonById(int alarmId);
 }
