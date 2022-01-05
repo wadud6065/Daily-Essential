@@ -35,6 +35,7 @@ Daily essential is an app for any android user. Nowadays we are busy with our wo
 |<img src="https://user-images.githubusercontent.com/49723335/148247493-01254996-0edb-4289-8e60-ce1e51277ae3.png" height="400"/> <img src="https://user-images.githubusercontent.com/49723335/148247522-c3b5a0db-6398-4321-9c53-15a7f54fc29d.png" height="400"/> <img src="https://user-images.githubusercontent.com/49723335/148247539-804e6c58-85c5-4a65-aa59-109bf126fdcb.png" height="400"/>  <img src="https://user-images.githubusercontent.com/49723335/148247552-7f112456-80ba-403e-b45d-2b5f197ac568.png" height="400"/> | This feature is used <br>for reminding you about your work. <br>You must set time and date. <br>Then you must add task name <br>with description. It'll notify you <br>on specific time and date|
 
 
-
-
-
+## Daily Routine
+| **Screenshot** | **Description** |
+| ------| -----------|
+|<img src="https://user-images.githubusercontent.com/49723335/148254434-63a86056-2074-4eda-8161-296701905c12.png" height="400"/> <img src="https://user-images.githubusercontent.com/49723335/148254449-e37d546a-e07e-44c7-b936-532e305f17ec.png" height="400"/> <img src="hhttps://user-images.githubusercontent.com/49723335/148254464-e22876d7-46b5-41db-91e6-9220494970b4.png" height="400"/>  <img src="https://user-images.githubusercontent.com/49723335/148255242-9c97937b-ef88-470f-9c84-10eed41fdd89.png" height="400"/> | This feature is partialy <br>implemented|
