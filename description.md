@@ -29,4 +29,12 @@ Daily essential is an app for any android user. Nowadays we are busy with our wo
 |<img src="https://user-images.githubusercontent.com/49723335/148167831-f9feb825-1592-42d3-b79f-c51a815262f0.jpg" height="400"/>  <img src="https://user-images.githubusercontent.com/49723335/148169593-3b7c44ed-0179-43a8-b65c-6b8ad94cc442.jpg" height="400"/> <img src="https://user-images.githubusercontent.com/49723335/148169604-2feb926e-8885-4ec3-9644-2132b9de443c.jpg" height="400"/>| You may find "add budget" in the drawer <br>menu. You have to fix a budget <br>for a month. You can update <br>or delete them. It helps you to <br>track your savings. |
 |<img src="https://user-images.githubusercontent.com/49723335/148164706-29632e8c-5cd2-46f0-8392-a641f8feaecb.jpg" height="400"/>  <img src="https://user-images.githubusercontent.com/49723335/148164721-86a2294a-c2a1-43dc-b7fa-714a2a8238a1.jpg" height="400"/>  <img src="https://user-images.githubusercontent.com/49723335/148164747-951d0b11-d2b1-4b5d-9585-ca0ed66a61e2.jpg" height="400"/>| This section is all about analytics. <br>You can find daily, weekly, and monthly <br>spendings analytics. Daily spending <br>analytics is described with the <br>pie chart; weekly spending analytics <br>is related to the bar diagram, <br>and monthly spending analytics is <br>illustrated with a waterfall graph. |
 
+## Remider
+| **Screenshot** | **Description** |
+| ------| -----------|
+|<img src="https://user-images.githubusercontent.com/49723335/148247493-01254996-0edb-4289-8e60-ce1e51277ae3.png" height="400"/> <img src="https://user-images.githubusercontent.com/49723335/148247522-c3b5a0db-6398-4321-9c53-15a7f54fc29d.png" height="400"/> <img src="https://user-images.githubusercontent.com/49723335/148247539-804e6c58-85c5-4a65-aa59-109bf126fdcb.png" height="400"/>  <img src="https://user-images.githubusercontent.com/49723335/148247552-7f112456-80ba-403e-b45d-2b5f197ac568.png" height="400"/> | This feature is used <br>for reminding you about your work. <br>You must set time and date. <br>Then you must add task name <br>with description. It'll notify you <br>on specific time and date|
+
+
+
+
 
