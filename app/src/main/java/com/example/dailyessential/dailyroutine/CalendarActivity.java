@@ -55,14 +55,5 @@ public class CalendarActivity extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
-
-        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-            @Override
-            public void run() {
-                database.insert(new Reminder("Test", "des 1", 2345L));
-                database.insert(new Reminder("Test 2", "des 2", 34545L));
-                database.insert(new Reminder("Test 3", "des 3", 34565L));
-            }
-        });
     }
 }

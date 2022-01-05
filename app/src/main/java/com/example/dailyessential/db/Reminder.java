@@ -5,6 +5,9 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.util.Calendar;
+import java.util.Date;
+
 @Entity(tableName = "reminder")
 public class Reminder {
     @PrimaryKey(autoGenerate = true)
@@ -14,20 +17,24 @@ public class Reminder {
     @ColumnInfo(name = "description")
     private String description;
     @ColumnInfo(name = "time")
-    private Long time;
+    private Calendar time;
+    @ColumnInfo(name = "alarmId")
+    private int alarmId;
 
-    public Reminder(Long id, String title, String description, Long time) {
+    public Reminder(Long id, String title, String description, Calendar time, int alarmId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.time = time;
+        this.alarmId = alarmId;
     }
 
     @Ignore
-    public Reminder(String title, String description, Long time) {
+    public Reminder(String title, String description, Calendar time, int alarmId) {
         this.title = title;
         this.description = description;
         this.time = time;
+        this.alarmId = alarmId;
     }
 
     public Long getId() {
@@ -54,11 +61,19 @@ public class Reminder {
         this.description = description;
     }
 
-    public Long getTime() {
+    public Calendar getTime() {
         return time;
     }
 
-    public void setTime(Long time) {
+    public void setTime(Calendar time) {
         this.time = time;
+    }
+
+    public int getAlarmId() {
+        return alarmId;
+    }
+
+    public void setAlarmId(int alarmId) {
+        this.alarmId = alarmId;
     }
 }

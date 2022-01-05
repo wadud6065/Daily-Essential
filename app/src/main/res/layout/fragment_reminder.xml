@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".reminder.reminderFrag"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="8dp">
 
     <EditText
         android:id="@+id/idReminderTittle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginLeft="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
         android:background="@null"
-        android:fontFamily="@font/ubuntu_bold"
+        android:fontFamily="@font/ubuntu_regular"
         android:hint="Title"
+        android:padding="8dp"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:includeFontPadding="false"
         android:inputType="text"
+        android:textColor="@color/black"
         android:textColorHint="@color/colorTextHint"
-        android:textSize="@dimen/_16ssp"/>
+        android:textSize="@dimen/_13ssp" />
 
     <EditText
         android:id="@+id/idReminderDes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
         android:background="@null"
-        android:fontFamily="@font/ubuntu_medium"
+        android:fontFamily="@font/ubuntu_regular"
         android:hint="Description"
+        android:padding="8dp"
+        android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:includeFontPadding="false"
         android:inputType="textMultiLine"
-        android:paddingTop="@dimen/_8sdp"
-        android:paddingBottom="@dimen/_8sdp"
+        android:textColor="@color/black"
         android:textColorHint="@color/colorTextHint"
-        android:textSize="@dimen/_13ssp" />
+        android:textSize="@dimen/_13ssp"
+        android:gravity="top"/>
 
-</FrameLayout>
+</LinearLayout>

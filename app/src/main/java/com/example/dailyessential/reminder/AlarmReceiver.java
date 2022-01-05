@@ -23,8 +23,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         notificationManagerCompat = NotificationManagerCompat.from(context);
 
         Notification notification = new NotificationCompat.Builder(context, DailyEssential.CHANNEL_ID)
-                .setContentTitle("Alarm!")
-                .setContentText("Alarm Manager is working!")
+                .setContentTitle(intent.getStringExtra("title"))
+                .setContentText(intent.getStringExtra("description"))
                 .setSmallIcon(R.drawable.notification_active)
                 .build();
 

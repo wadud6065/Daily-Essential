@@ -5,8 +5,11 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
 
 @Database(entities = {Reminder.class}, version = 1, exportSchema = false)
+@TypeConverters({Converter.class})
 public abstract class ReminderDatabase extends RoomDatabase {
     private static final String LOG_TAG = ReminderDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();
