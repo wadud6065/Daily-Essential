@@ -31,7 +31,7 @@ SL | Learning Task | Description | Status | Comment |
 
 ## Developers
 **Group Number:** 41 <br>
-**Group Name:** Daily-Essential
+**Group Name:** Keyboard Warrior
 
 **Group Member 1 Details:** <br>
 >**Name:** Abdul Wadud Shakib <br>
@@ -45,3 +45,5 @@ SL | Learning Task | Description | Status | Comment |
 >**Mobile No:** +01723675937 <br>
 >**Email:** fahim.prime@gamil.com <br>
 >**Registration:** 2018331084
+
+<small>&copy; 2021 - Dept. of CSE, SUST, BD</small>
