@@ -1,5 +1,7 @@
 # G41-Daily-Essential
 
+[#Click Here to see project feature](https://github.com/wadud6065/Daily-Essential/blob/main/CSE_250_2018_Final_Presentation_41_KeyboardWarrior.pdf)
+
 Feature List
 -------------
 1. **Daily Routine:** Make detailed schedules of months in advance, select specific days of the week, input class routines.
